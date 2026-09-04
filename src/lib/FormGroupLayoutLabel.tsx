@@ -67,7 +67,7 @@ const FormGroupLayoutLabel = <T extends FieldValues>(props: FormGroupLayoutLabel
   const checkboxLayout = layout === "checkbox";
 
   return (
-    <Label check={checkboxLayout || switchLayout} htmlFor={fieldId} style={labelStyle}>
+    <Label check={checkboxLayout || switchLayout} for={fieldId} style={labelStyle}>
       {finalLabel}
       <Tooltip<T> labelToolTip={labelToolTip} fieldId={fieldId} />
     </Label>
