@@ -8,13 +8,12 @@ type TooltipProps<T extends FieldValues> = Pick<FormGroupLayoutLabelProps<T>, "l
 
 const Tooltip = <T extends FieldValues>(props: TooltipProps<T>) => {
   const { fieldId, labelToolTip } = props;
-  const isTextTooltip = typeof labelToolTip === "string";
 
   if (!labelToolTip) {
     return null;
   }
 
-  if (!isTextTooltip) {
+  if (typeof labelToolTip !== "string") {
     return labelToolTip;
   }
 
