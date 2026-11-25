@@ -1,0 +1,20 @@
+# The Cypress test app is a workspace of its own with its own lockfile. It links react, react-dom,
+# react-hook-form and react-datepicker from the root node_modules and the package from ../dist,
+# so install and build the root first.
+
+# Dependencies allowed to run install/build scripts. pnpm blocks every other one and
+# fails the install when a dependency with a build script is not listed here.
+allowBuilds:
+  # Downloads the Cypress binary that `cypress run` needs.
+  cypress: true
+  unrs-resolver: false
+
+# Same supply-chain floor as the root workspace: reject versions younger than 14 days.
+minimumReleaseAge: 20160
+minimumReleaseAgeStrict: true
+
+# Our own packages skip the waiting period. They publish only through trusted publishing
+# or by a maintainer with 2FA, so a fresh version is not the unknown the floor guards against,
+# and a library that depends on another one of ours can take its release right away.
+minimumReleaseAgeExclude:
+  - "@collana-solutions/*"

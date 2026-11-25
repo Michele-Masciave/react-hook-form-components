@@ -1,11 +1,49 @@
-# Changelog
+# @collana-solutions/react-hook-form-components
 
-All notable changes to this project will be documented in this file.
+## 5.0.0
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+### Major Changes
 
-## [Unreleased]
+- [#177](https://github.com/collana-solutions/react-hook-form-components/pull/177) [`6c9ff97`](https://github.com/collana-solutions/react-hook-form-components/commit/6c9ff97bce121bfa463130965c2646bde1bd836e) Thanks [@neotrow](https://github.com/neotrow)! - The peer dependency `@neolution-ch/reactstrap` is now `@collana-solutions/reactstrap` (`^10.0.1`). The components, their API and the styles are unchanged. Apps install reactstrap themselves, so replace the old package with the new one. Your app and these components then share one copy of reactstrap:
+  
+  ```shell
+  npm uninstall @neolution-ch/reactstrap
+  npm install @collana-solutions/reactstrap
+  ```
+  
+  Then change the reactstrap imports in your own code:
+  
+  ```js
+  import { Button, InputGroupText } from "@collana-solutions/reactstrap";
+  ```
+  
+  The dependency `@neolution-ch/javascript-utils` is replaced by `@collana-solutions/javascript-utils` 2.6.1. It is installed with this package, so there is nothing to change for it.
+
+## 4.5.1
+
+### Patch Changes
+
+- [#172](https://github.com/collana-solutions/react-hook-form-components/pull/172) [`b3a9971`](https://github.com/collana-solutions/react-hook-form-components/commit/b3a9971ef9c454c60119c3d6a715eca357bdb218) Thanks [@neotrow](https://github.com/neotrow)! - The package is now published as `@collana-solutions/react-hook-form-components`. The API and the styles are unchanged, and 4.5.0 is available under both names. To migrate, replace the old package with the new one:
+  
+  ```shell
+  npm uninstall @neolution-ch/react-hook-form-components
+  npm install @collana-solutions/react-hook-form-components
+  ```
+  
+  Then change the imports, including the stylesheet:
+  
+  ```js
+  import { Form, Input, useFormContext } from "@collana-solutions/react-hook-form-components";
+  import "@collana-solutions/react-hook-form-components/styles.css";
+  ```
+  
+  `@neolution-ch/react-hook-form-components` gets deprecated and receives no further releases.
+
+## [4.5.0] - 2026-11-11
+
+### Fixed
+
+- `TelephoneNumberInput` opens the telephone keypad on phones.
 
 ## [4.4.0] - 2026-09-08
 
@@ -736,7 +774,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Created package :tada:
 
-[Unreleased]: https://github.com/neolution-ch/react-hook-form-components/compare/4.4.0...HEAD
 [0.1.2]: https://github.com/neolution-ch/react-hook-form-components/compare/0.1.1...0.1.2
 [0.1.1]: https://github.com/neolution-ch/react-hook-form-components/compare/0.1.0...0.1.1
 [0.1.0]: https://github.com/neolution-ch/react-hook-form-components/releases/tag/0.1.0
@@ -824,4 +861,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.1.1]: https://github.com/neolution-ch/react-hook-form-components/compare/1.1.0...1.1.1
 [1.1.0]: https://github.com/neolution-ch/react-hook-form-components/compare/1.0.1...1.1.0
 [1.0.1]: https://github.com/neolution-ch/react-hook-form-components/compare/0.16.2...1.0.1
+[4.5.0]: https://github.com/neolution-ch/react-hook-form-components/compare/4.4.0...4.5.0
 [4.4.0]: https://github.com/neolution-ch/react-hook-form-components/compare/4.3.1-rc.0...4.4.0
