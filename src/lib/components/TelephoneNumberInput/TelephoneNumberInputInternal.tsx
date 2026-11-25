@@ -55,7 +55,7 @@ const TelephoneNumberInputInternal = <T extends FieldValues>(props: TelephoneNum
   });
 
   const isDisabled = formDisabled || disabled;
-  const fieldError = get<typeof errors>(errors, name) as FieldError | undefined;
+  const fieldError = get(errors, name) as FieldError | undefined;
   const hideErrorMessage = useMemo(() => hideValidationMessages || hideValidationMessage, [hideValidationMessages, hideValidationMessage]);
   const hasError = useMemo(() => !!fieldError, [fieldError]);
   const errorMessage = useMemo(() => String(fieldError?.message), [fieldError]);

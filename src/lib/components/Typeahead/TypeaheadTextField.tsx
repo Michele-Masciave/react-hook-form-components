@@ -48,7 +48,7 @@ const TypeaheadTextField = <T extends FieldValues, TRenderAddon = unknown>(props
     hideValidationMessages,
   } = useFormContext<T>();
 
-  const fieldError = get<typeof errors>(errors, name) as FieldError | undefined;
+  const fieldError = get(errors, name) as FieldError | undefined;
   const hasError = useMemo(() => !!fieldError, [fieldError]);
   const errorMessage = useMemo(() => String(fieldError?.message), [fieldError]);
   const hideErrorMessage = useMemo(() => hideValidationMessages || hideValidationMessage, [hideValidationMessages, hideValidationMessage]);
