@@ -63,7 +63,7 @@ const textFieldBootstrapStyle: SxProps = {
  * @param useBootstrapStyle whether the bootstrap style is used
  * @returns the sx props for the text field
  */
-const getTypeaheadAddonLayoutStyle = (useBootstrapStyle?: boolean) => ({
+const getTypeaheadAddonLayoutStyle = (useBootstrapStyle?: boolean): SxProps => ({
   "& .MuiAutocomplete-inputRoot.MuiInputBase-root": {
     flexWrap: "nowrap",
     alignItems: "center",
