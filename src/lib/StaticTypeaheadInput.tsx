@@ -167,11 +167,11 @@ const StaticTypeaheadInput = <T extends FieldValues>(props: StaticTypeaheadInput
             const values = convertAutoCompleteOptionsToStringArray(optionsArray);
             const finalValue = multiple ? values : values[0];
             clearErrors(field.name);
+            field.onChange(finalValue);
             if (onChange) {
               const finalOption = multiple ? optionsArray : optionsArray?.at(0);
               await onChange(finalValue, finalOption);
             }
-            field.onChange(finalValue);
           })();
         }}
         onInputChange={(_e, value, reason) => {

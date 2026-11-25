@@ -91,6 +91,7 @@ const TypeaheadTextField = <T extends FieldValues, TRenderAddon = unknown>(props
               {startAdornment && (
                 <InputAdornment
                   position="start"
+                  disablePointerEvents={addonProps?.isDisabled}
                   className={`typeahead-addon-start${params.InputProps.startAdornment ? "" : " typeahead-addon-start--no-values"}`}
                 >
                   {startAdornment}
@@ -100,7 +101,7 @@ const TypeaheadTextField = <T extends FieldValues, TRenderAddon = unknown>(props
             </>
           ),
           endAdornment: (
-            <InputAdornment position="end" className="typeahead-addon-end">
+            <InputAdornment position="end" disablePointerEvents={addonProps?.isDisabled} className="typeahead-addon-end">
               {isLoading && <CircularProgress color="inherit" size={20} />}
               {endAdornment}
               {loadMoreOptions && limitResults && (
