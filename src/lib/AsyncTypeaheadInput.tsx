@@ -196,11 +196,11 @@ const AsyncTypeaheadInput = <T extends FieldValues>(props: AsyncTypeaheadInputPr
             setValue(optionsArray ?? []);
             const values = convertAutoCompleteOptionsToStringArray(optionsArray);
             const finalValue = multiple ? values : values[0];
+            field.onChange(finalValue);
             if (onChange) {
               const finalOption = multiple ? optionsArray : optionsArray?.at(0);
               await onChange(finalValue, finalOption);
             }
-            field.onChange(finalValue);
           })();
         }}
         onInputChange={(_e, query, reason) => {
