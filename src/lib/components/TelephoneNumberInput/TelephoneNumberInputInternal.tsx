@@ -55,19 +55,19 @@ const TelephoneNumberInputInternal = <T extends FieldValues>(props: TelephoneNum
   });
 
   const isDisabled = formDisabled || disabled;
-  const fieldError = get(errors, name) as FieldError | undefined;
+  const fieldError = get<typeof errors>(errors, name) as FieldError | undefined;
   const hideErrorMessage = useMemo(() => hideValidationMessages || hideValidationMessage, [hideValidationMessages, hideValidationMessage]);
   const hasError = useMemo(() => !!fieldError, [fieldError]);
   const errorMessage = useMemo(() => String(fieldError?.message), [fieldError]);
   const finalLabel = useMemo(() => getRequiredLabel<T>(label, name, requiredFields), [label, name, requiredFields]);
 
   // we need to control the country in the case the value inside the form is undefined
-  const [country, setCountry] = useState<Country>(extractCountryCodeFromTelephoneNumber(field.value as string | undefined, defaultCountry));
+  const [country, setCountry] = useState<Country>(extractCountryCodeFromTelephoneNumber(field.value, defaultCountry));
   const resetCountry = useRef(true);
 
   useEffect(() => {
     if (resetCountry.current) {
-      setCountry(extractCountryCodeFromTelephoneNumber(field.value as string | undefined, defaultCountry));
+      setCountry(extractCountryCodeFromTelephoneNumber(field.value, defaultCountry));
     }
     resetCountry.current = true;
   }, [defaultCountry, field.value]);

@@ -1,6 +1,6 @@
-import { SxProps } from "@mui/material/styles";
+import { SxProps, Theme } from "@mui/material/styles";
 
-const textFieldBootstrapStyle: SxProps = {
+const textFieldBootstrapStyle: SxProps<Theme> = {
   ".MuiOutlinedInput-root": {
     minHeight: "36.39px",
     border: "1px solid #dee2e6",
@@ -63,7 +63,7 @@ const textFieldBootstrapStyle: SxProps = {
  * @param useBootstrapStyle whether the bootstrap style is used
  * @returns the sx props for the text field
  */
-const getTypeaheadAddonLayoutStyle = (useBootstrapStyle?: boolean): SxProps => ({
+const getTypeaheadAddonLayoutStyle = (useBootstrapStyle?: boolean): SxProps<Theme> => ({
   "& .MuiAutocomplete-inputRoot.MuiInputBase-root": {
     flexWrap: "nowrap",
     alignItems: "center",

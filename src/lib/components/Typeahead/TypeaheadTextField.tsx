@@ -48,7 +48,7 @@ const TypeaheadTextField = <T extends FieldValues, TRenderAddon = unknown>(props
     hideValidationMessages,
   } = useFormContext<T>();
 
-  const fieldError = get(errors, name) as FieldError | undefined;
+  const fieldError = get<typeof errors>(errors, name) as FieldError | undefined;
   const hasError = useMemo(() => !!fieldError, [fieldError]);
   const errorMessage = useMemo(() => String(fieldError?.message), [fieldError]);
   const hideErrorMessage = useMemo(() => hideValidationMessages || hideValidationMessage, [hideValidationMessages, hideValidationMessage]);
@@ -70,14 +70,19 @@ const TypeaheadTextField = <T extends FieldValues, TRenderAddon = unknown>(props
     [addonRight, addonProps],
   );
 
+  const mergedSx = useMemo(
+    () => ({
+      ...(useBootstrapStyle ? textFieldBootstrapStyle : {}),
+      ...getTypeaheadAddonLayoutStyle(useBootstrapStyle),
+    }),
+    [useBootstrapStyle],
+  );
+
   return (
     <TextField
       {...params}
       style={style}
-      sx={{
-        ...(useBootstrapStyle && textFieldBootstrapStyle),
-        ...getTypeaheadAddonLayoutStyle(useBootstrapStyle),
-      }}
+      sx={mergedSx}
       variant="outlined"
       error={hasError}
       label={useBootstrapStyle ? undefined : finalLabel}

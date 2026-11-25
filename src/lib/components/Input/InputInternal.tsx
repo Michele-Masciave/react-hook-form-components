@@ -46,7 +46,7 @@ const InputInternal = <T extends FieldValues>(props: InputProps<T>) => {
     setValueAs: (value: string) => (value === UNDEFINED_OPTION_VALUE ? undefined : value),
   });
 
-  const fieldError = get(errors, name) as FieldError | undefined;
+  const fieldError = get<typeof errors>(errors, name) as FieldError | undefined;
   const hasError = !!fieldError;
 
   return (

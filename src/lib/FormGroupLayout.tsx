@@ -41,7 +41,7 @@ const FormGroupLayout = <T extends FieldValues, TRenderAddon = unknown>(props: F
     hideValidationMessages,
   } = useFormContext();
 
-  const fieldError = get(errors, name) as FieldError | undefined;
+  const fieldError = get<typeof errors>(errors, name) as FieldError | undefined;
   const errorMessage = String(fieldError?.message);
 
   const switchLayout = layout === "switch";
