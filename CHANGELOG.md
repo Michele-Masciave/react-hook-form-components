@@ -39,21 +39,6 @@
   
   `@neolution-ch/react-hook-form-components` gets deprecated and receives no further releases.
 
-### Added
-
-- `getTypeaheadAddonLayoutStyle` helper to lay out a typeahead text field as addon start, values and input, addon end.
-- export of `CommonInputProps` and `MergedAddonProps` types.
-
-### Changed
-
-- layout of `TypeaheadTextField`: the selected values (chips) and the input are grouped between the addons, and the custom addon right, the clear icon and the popup icon are rendered together as one end addon on the far right, both for single and multiple selection.
-- `MUI` icon button padding to MUI default.
-- `onInputChange` and `onChange` supports also async functions on `AsyncTypeaheadInput` and `StaticTypeaheadInput`.
-
-### Removed
-
-- `variant` from `TypeaheadTextField`: `outlined` is used by default, `useBootstrapStyle` for bootstrap css otherwise.
-
 ## [4.5.0] - 2026-11-11
 
 ### Fixed
