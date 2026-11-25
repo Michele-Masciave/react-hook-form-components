@@ -160,22 +160,26 @@ const StaticTypeaheadInput = <T extends FieldValues>(props: StaticTypeaheadInput
           field.onBlur();
         }}
         onChange={(_, value) => {
-          // value is typed as Autocomplete<Value> (aka TypeaheadOption) or an array of Autocomplete<Value> (aka TypeaheadOption[])
-          // however, the component is not intended to be used with mixed types
-          const optionsArray = getOptionsFromValue(value, fixedOptions, withFixedOptionsInValue);
-          const values = convertAutoCompleteOptionsToStringArray(optionsArray);
-          const finalValue = multiple ? values : values[0];
-          clearErrors(field.name);
-          if (onChange) {
-            const finalOption = multiple ? optionsArray : optionsArray?.at(0);
-            onChange(finalValue, finalOption);
-          }
-          field.onChange(finalValue);
+          void (async () => {
+            // value is typed as Autocomplete<Value> (aka TypeaheadOption) or an array of Autocomplete<Value> (aka TypeaheadOption[])
+            // however, the component is not intended to be used with mixed types
+            const optionsArray = getOptionsFromValue(value, fixedOptions, withFixedOptionsInValue);
+            const values = convertAutoCompleteOptionsToStringArray(optionsArray);
+            const finalValue = multiple ? values : values[0];
+            clearErrors(field.name);
+            if (onChange) {
+              const finalOption = multiple ? optionsArray : optionsArray?.at(0);
+              await onChange(finalValue, finalOption);
+            }
+            field.onChange(finalValue);
+          })();
         }}
         onInputChange={(_e, value, reason) => {
-          if (onInputChange) {
-            onInputChange(value, reason);
-          }
+          void (async () => {
+            if (onInputChange) {
+              await onInputChange(value, reason);
+            }
+          })();
         }}
         renderOption={highlightOptions ? renderHighlightedOptionFunction : undefined}
         renderInput={(params) => (
