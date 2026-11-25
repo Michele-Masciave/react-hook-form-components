@@ -1,7 +1,7 @@
 import React from "react";
 import { StoryFn, Meta } from "@storybook/react-webpack5";
 import { Form, Input, InputProps } from "../../src";
-import { Button } from "@neolution-ch/reactstrap";
+import { Button } from "@collana-solutions/reactstrap";
 
 export default {
   title: "Components",
@@ -23,12 +23,12 @@ const Template: StoryFn<InputProps<FormInterface>> = (args) => (
   </React.Fragment>
 );
 
-export const InputExample = Template.bind({});
+export const InputExample: StoryFn<InputProps<FormInterface>> = Template.bind({});
 InputExample.args = {
   name: "name",
   label: "Input Label",
   disabled: false,
-} as InputProps<FormInterface>;
+};
 InputExample.decorators = [
   (StoryComponent) => (
     // eslint-disable-next-line react/jsx-no-useless-fragment

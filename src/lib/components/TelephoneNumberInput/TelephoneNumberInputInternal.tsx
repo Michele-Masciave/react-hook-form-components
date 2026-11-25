@@ -10,7 +10,7 @@ import { TelephoneNumberInputProps } from "../../TelephoneNumberInput";
 import { getRequiredLabel } from "../../helpers/form";
 import { Country, extractCountryCodeFromTelephoneNumber, extractNationalNumberFromTelephoneNumber } from "../../helpers/telephoneNumber";
 import { TelephoneNumberInputAdornment } from "./TelephoneNumberInputAdornment";
-import { isNullOrWhitespace } from "@neolution-ch/javascript-utils";
+import { isNullOrWhitespace } from "@collana-solutions/javascript-utils";
 import { TelephoneNumberAutocomplete } from "./TelephoneNumberAutocomplete";
 
 const TelephoneNumberInputInternal = <T extends FieldValues>(props: TelephoneNumberInputProps<T>) => {

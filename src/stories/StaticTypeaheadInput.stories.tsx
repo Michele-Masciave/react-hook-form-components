@@ -1,7 +1,7 @@
 import React from "react";
 import { StoryFn, Meta } from "@storybook/react-webpack5";
 import { Form, StaticTypeaheadInput, StaticTypeaheadInputProps } from "../../src";
-import { Button } from "@neolution-ch/reactstrap";
+import { Button } from "@collana-solutions/reactstrap";
 
 export default {
   title: "Components",
@@ -23,13 +23,13 @@ const Template: StoryFn<StaticTypeaheadInputProps<FormInterface>> = (args) => (
   </React.Fragment>
 );
 
-export const StaticTypeaheadInputExample = Template.bind({});
+export const StaticTypeaheadInputExample: StoryFn<StaticTypeaheadInputProps<FormInterface>> = Template.bind({});
 StaticTypeaheadInputExample.args = {
   name: "name",
   label: "StaticTypeaheadInput Label",
   options: ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"],
   disabled: false,
-} as StaticTypeaheadInputProps<FormInterface>;
+};
 StaticTypeaheadInputExample.decorators = [
   (StoryComponent) => (
     // eslint-disable-next-line react/jsx-no-useless-fragment
